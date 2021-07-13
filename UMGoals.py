@@ -39,7 +39,7 @@ with open('UMGoals.csv') as csv_file:
      for row in csv_reader:
           if line_count == 0:
                line_count += 1
-               print("oh no")
+               print("skipped tiers :)")
           else:
                if line_count in EGoals and line_count in MGoals and line_count in HGoals:
                     bingodict["name"+str(line_count)+"EMH"] = (row[0])
