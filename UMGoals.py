@@ -1,10 +1,25 @@
 import csv
 import random
 import json
+import math
 E = 16
 M = 6
 H = 3
 bingodict = {}
+def goalscheck(E, M, H):
+     if E+M+H <= 1 or E > 20 or M > 20 or H > 20:
+          return False
+     else:
+          goaltotal = E+M+H
+          if goaltotal % (math.sqrt(goaltotal)) == 0:
+               return True
+          else:
+               return False
+if goalscheck(E, M, H):
+     print("Goals are square, bingo will work :)")
+else:
+     print("WARNING, GOALS ARE NOT A SQUARE NUMBER, MAY BE JANK, YOU HAVE BEEN WARNED!")
+
 with open('UMGoals.csv') as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=',')
     csv_lines = sum(1 for line in csv_reader)
